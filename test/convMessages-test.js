@@ -1,4 +1,4 @@
-// localhost:5000/api/null/message/GetConvMessages
+// localhost:5000/api/null/exercise
 
 const request = require("request");
 const expect = require("chai").expect;
@@ -7,13 +7,13 @@ const baseUrl = "http://localhost:5000/api";
 const getConvMessagesUrl = (userId = null) => `${baseUrl}/${userId}/message/GetConvMessages`;
 
 const loginData = {
-  username: 'istnieje1112',
-  password: 'testHaslo',
+  username: 'niepisanie',
+  password: 'niepisanie',
 }
 
 const authUrl = baseUrl + '/auth';
 
-describe('Wiadomosci', function() {
+describe('getConvMessages', function() {
   let token = '';
   let userId = null;
   before(function(done){

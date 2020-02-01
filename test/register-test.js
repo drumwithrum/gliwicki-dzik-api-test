@@ -4,7 +4,7 @@ const baseUrl = "http://localhost:5000/api";
 
 
 let loginData = {
-  username: 'istnieje1112',
+  username: 'test10',
   password: 'testHaslo',
   email: 'test@gmail.com',
   gender:'male',

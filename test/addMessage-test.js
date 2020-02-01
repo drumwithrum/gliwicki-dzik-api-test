@@ -4,7 +4,7 @@ const request = require("request");
 const expect = require("chai").expect;
 const baseUrl = "http://localhost:5000/api";
 
-const getAddMessageURL = (userId = null) => `${baseUrl}/${userId}/message/AddMessage`;
+const getAddMessageURL = (userId = null) => `${baseUrl}/${userId}/message`;
 
 const loginData = {
   username: 'istnieje1112',
@@ -13,7 +13,7 @@ const loginData = {
 
 const messageData = {
     recipientId:49,
-	content:"Od Nikodema do kekw",
+	content:"Od Nikodema do kekwww",
 }
 
 const authUrl = baseUrl + '/auth';
@@ -45,6 +45,7 @@ describe('Dodawanie wiadomosci', function() {
         json: true,
       },
       function (err, response, body) {
+          console.log(response.statusCode);
          expect(response.statusCode).to.equal(201);
         done();
       }
