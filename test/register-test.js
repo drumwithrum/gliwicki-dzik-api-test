@@ -1,10 +1,10 @@
-const request = require("request"); // import biblioteki do robienia requestow
-const expect = require("chai").expect; // import funkcji expect
-const baseUrl = "http://localhost:5000/api"; // url do api
+const request = require("request"); 
+const expect = require("chai").expect; 
+const baseUrl = "http://localhost:5000/api"; 
 
 
 let loginData = {
-  username: 'istnieje111',
+  username: 'istnieje1112',
   password: 'testHaslo',
   email: 'test@gmail.com',
   gender:'male',
@@ -20,16 +20,14 @@ describe('Rejestracja', function() {
         body: loginData, 
         json: true, 
       },
-      function (err, response, body) { // err -error / response - cała zwrotka z requesta / body - odpowiedź z API
-        console.log('status code: ', response.statusCode);
-        const token = body.newToken.token;
+      function (err, response, body) { 
+       const token = body.newToken.token;
         const user = body.userToUse;
       
-        expect(token.length > 0).to.equal(true); // expect - tak jak z angielskiego nazwa wskazuje, oczekujesz, że wartość z nawiasów będzie to.equal(jakas inna wartosc)
+        expect(token.length > 0).to.equal(true); 
         expect(user.username).to.equal(loginData.username);
-        //expect(user.email).to.equal(loginData.email);
         expect(user.gender).to.equal(loginData.gender);
-        expect(response.statusCode).to.equal(200); // każdy request ma kod statusu, poczytaj se na necie o tym najlepiej, u nas 200 - ok, 401 - unauthorized, 404 - not found a inne to nawet nie wiem
+        expect(response.statusCode).to.equal(200);
         done();
       }
     )
@@ -45,8 +43,7 @@ describe('Rejestracja', function() {
         json: true,
       },
       function (err, response, body) {
-        console.log('status code: ', response.statusCode);
-        var errorPlec = Object.keys(body.errors).includes("Gender");
+        let errorPlec = Object.keys(body.errors).includes("Gender");
         expect (errorPlec).to.equal(true);
         expect(response.statusCode).to.equal(400);
         done();
@@ -66,8 +63,7 @@ describe('Rejestracja', function() {
         json: true,
       },
       function (err, response, body) {
-        console.log('status code: ', response.statusCode);
-        var errorEmail = Object.keys(body.errors).includes("Email");
+        let errorEmail = Object.keys(body.errors).includes("Email");
         expect (errorEmail).to.equal(true);
         expect(response.statusCode).to.equal(400);
         done();
@@ -88,8 +84,7 @@ describe('Rejestracja', function() {
         json: true,
       },
       function (err, response, body) {
-        console.log('status code: ', response.statusCode);
-        var errorEmailHaslo = Object.keys(body.errors).includes("Email","Password");
+        let errorEmailHaslo = Object.keys(body.errors).includes("Email","Password");
         expect (errorEmailHaslo).to.equal(true);
         expect(response.statusCode).to.equal(400);
         done();
@@ -109,8 +104,7 @@ describe('Rejestracja', function() {
         json: true,
       },
       function (err, response, body) {
-        console.log('status code: ', response.statusCode);
-        var errorEmailHasloPlec = Object.keys(body.errors).includes("Email","Gender","Password"); // ??
+         let errorEmailHasloPlec = Object.keys(body.errors).includes("Email","Gender","Password"); // ??
         expect(errorEmailHasloPlec).to.equal(true);
         expect(response.statusCode).to.equal(400);
         done();
@@ -126,21 +120,18 @@ describe('Rejestracja', function() {
     loginData.email= 'test1@gmail.com',
     loginData.gender='male',
 
-   
-     request.post(
+      request.post(
       {
         url: authUrl + '/register',
         body: loginData,
         json: true,
       },
       function (err, response, body) {
-        console.log('status code: ', response.statusCode);
-        console.log(body);
-        expect(response.statusCode).to.equal(400);
+       expect(response.statusCode).to.equal(400);
         done();
       }
     )
   
   });
 
-  });
+});

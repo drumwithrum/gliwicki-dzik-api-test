@@ -1,4 +1,4 @@
-// localhost:5000/api/null/exercise
+// localhost:5000/api/null/exercise/1
 
 const request = require("request"); 
 const expect = require("chai").expect; 
@@ -14,8 +14,6 @@ describe('PojedynczeCwiczenie', function() {
         json: true, 
       },
       function (err, response, body) { 
-
-        console.log(body.name,body.exerciseId,body.description,body.url);
         expect(body.name.length > 0).to.equal(true);
         expect(body.exerciseId == 1).to.equal(true);
         expect(body.description.length > 0).to.equal(true);
