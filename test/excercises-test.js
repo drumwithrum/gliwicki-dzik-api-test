@@ -18,7 +18,6 @@ describe('Ćwiczenia', function() {
         json: true, // po prostu zostaw true, api obśługuje akurat taki typ requestów
       },
       function (err, response, body) { // err -error / response - cała zwrotka z requesta / body - odpowiedź z API
-        console.log(body);
         expect(body.length > 0).to.equal(true); // expect - tak jak z angielskiego nazwa wskazuje, oczekujesz, że wartość z nawiasów będzie to.equal(jakas inna wartosc)
         done();
       }
