@@ -1,10 +1,10 @@
-// localhost:5000/api/null/content/getmessage/1
+// localhost:5000/api/null/user/me
 
 const request = require("request"); 
 const expect = require("chai").expect; 
 const baseUrl = "http://localhost:5000/api"; 
 
-const getMessagesUrl = (userId = null) => `${baseUrl}/${userId}/user/${userId}`;
+const getMessagesUrl = (userId = null) => `${baseUrl}/${userId}/user/me`;
 
 const loginData = {
     username: 'niepisanie',
