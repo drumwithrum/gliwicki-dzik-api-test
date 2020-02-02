@@ -1,17 +1,18 @@
-// localhost:5000/api/null/content/getmessage/1
+// localhost:5000/api/null/message
 
 const request = require("request"); 
 const expect = require("chai").expect; 
 const baseUrl = "http://localhost:5000/api"; 
 
-const getMessagesUrl = (userId = null) => `${baseUrl}/${userId}/message/1`;
+const getMessagesURL = (userId = null) => `${baseUrl}/${userId}/message`;
+
 
 const loginData = {
-    username: 'niepisanie',
-    password: 'niepisanie',
+    username: 'testwiadomosci',
+    password: 'testwwww',
   }
   const authUrl = baseUrl + '/auth';
-describe('Pojedyncza wiadomosc', function() {
+describe('Wszystkie wiadomosci', function() {
     let token = '';
     let userId = null;
     
@@ -29,17 +30,14 @@ describe('Pojedyncza wiadomosc', function() {
         }
       )
     })
-  it('Zwraca pojedyncza wiadomosc', function(done) {
+
+  it('Zwraca 200 - wszystkie wiadomosci', function(done) {
     request.get(
       {
-        url: getMessagesUrl(userId) , 
+        url: getMessagesURL(userId) , 
         json: true, 
       },
       function (err, response, body) { 
-        expect(body.senderId != 0).to.equal(true);
-        expect(body.recipientId !=0).to.equal(true);
-        expect(body.dateOfSent.length > 0).to.equal(true);
-        expect(body.content.length > 0).to.equal(true);
         expect(response.statusCode).to.equal(200);
         done();
       }

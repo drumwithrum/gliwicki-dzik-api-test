@@ -1,4 +1,4 @@
-// localhost:5000/api/null/exercise
+// localhost:5000/api/null/message
 
 const request = require("request");
 const expect = require("chai").expect;
@@ -45,7 +45,6 @@ describe('Dodawanie wiadomosci', function() {
         json: true,
       },
       function (err, response, body) {
-          console.log(response.statusCode);
          expect(response.statusCode).to.equal(201);
         done();
       }

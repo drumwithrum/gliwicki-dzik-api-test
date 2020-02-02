@@ -14,7 +14,6 @@ describe('Ćwiczenia', function() {
         json: true, 
       },
       function (err, response, body) { 
-        console.log(body.length);
         expect(body.length > 0).to.equal(true); 
         done();
       }

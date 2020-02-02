@@ -56,12 +56,11 @@ describe('Dodawanie jednego treningu', function() {
     request.post(
       {
         url: getAddOneTrainingURL(userId),
-       // body:trainingData,
+        body:trainingData,
         json: true,
       },
       function (err, response, body) {
-        
-         expect(response.statusCode).to.equal(201);
+        expect(response.statusCode).to.equal(201);
         done();
       }
     ).auth(null, null, true, token)

@@ -12,7 +12,7 @@ const loginData = {
 }
 
 const exerciseData = {
-    name:"pompkiiiaaaad",
+    name:"kolejnecwiczenie",
 	description:"opis ćwiczenia blablaa",
 	url:"youtube.com/jakies_videoa",
 }
