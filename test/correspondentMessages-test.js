@@ -1,4 +1,4 @@
-// localhost:5000/api/null/message/GetConvMessages
+// localhost:5000/api/null/message/corresponded
 
 const request = require("request");
 const expect = require("chai").expect;
