@@ -12,7 +12,7 @@ const loginData = {
 }
 
 const exerciseData = {
-    name:"kolejnecwiczenie",
+    name:"kolejnecwiczeniekolejnekolejne",
 	description:"opis ćwiczenia blablaa",
 	url:"youtube.com/jakies_videoa",
 }
@@ -47,6 +47,20 @@ describe('Dodawanie jednego cwiczenia', function() {
       },
       function (err, response, body) {
          expect(response.statusCode).to.equal(201);
+        done();
+      }
+    ).auth(null, null, true, token)
+  });
+
+  it('Zwraca 400 jesli nazwa cwiczenia juz istnieje', function(done) {
+    request.post(
+      {
+        url: getAddOneExerciseURL(userId),
+        body:exerciseData,
+        json: true,
+      },
+      function (err, response, body) {
+         expect(response.statusCode).to.equal(400);
         done();
       }
     ).auth(null, null, true, token)

@@ -12,11 +12,11 @@ const loginData = {
 }
 
 const exerciseData = {
-    city:"NewYorkfakka",
-	country:"USAkkfaa",
+    city:"Castelleone",
+	country:"Italy",
 	growth:"1800",
 	weight:"900",
-	description:"usfaaaaaakka",
+	description:"ITCA",
 	bicepssize:"200",
 }
 
@@ -41,7 +41,7 @@ describe('Modyfikacja uzytkownika', function() {
     )
   })
 
-  it('Zwraca 204 jesli poprawnie zmodyfikowano dane', function(done) {
+  it('Zwraca 200 jesli poprawnie zmodyfikowano dane', function(done) {
     request.put(
       {
         url: getEditUserURL(userId),
@@ -49,7 +49,7 @@ describe('Modyfikacja uzytkownika', function() {
         json: true,
       },
       function (err, response, body) {
-         expect(response.statusCode).to.equal(204);
+         expect(response.statusCode).to.equal(200);
         done();
       }
     ).auth(null, null, true, token)
